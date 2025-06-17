@@ -2,6 +2,10 @@
 
 from setuptools import setup, find_packages
 
+def read_requirements():
+    with open('requirements.txt') as f:
+        return f.read().splitlines()
+
 setup(
     name='hello_package', # The name of your package
     version='0.1.0',      # The initial version number
@@ -18,7 +22,8 @@ setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.6', # Minimum Python version required
-    install_requires=[ # List of dependencies required by your package
-        # 'some_dependency>=1.0', # Example: uncomment and replace with actual dependencies if any
-    ],
+    # install_requires=[ # List of dependencies required by your package
+    #     # 'some_dependency>=1.0', # Example: uncomment and replace with actual dependencies if any
+    # ],
+    install_requires=read_requirements(), # Read dependencies from requirements.txt
 )
